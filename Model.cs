@@ -2,34 +2,11 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using System.IO;
-using System.Text.Json.Serialization;
+//using System.Text.Json.Serialization;
 
 namespace BirthdayGreetings
 {
-    struct Person
-    {
-        [JsonInclude]
-        public string firstName;
-        [JsonInclude]
-        public string surname;
-        [JsonInclude]
-        public string patronymic;
-        [JsonInclude]
-        public DateTime birthday;
-        public override string ToString()
-        {
-            return $"ФИО: {surname} {firstName} {patronymic}\nДень рождения: " + birthday.ToString("d");
-        }
-        public bool Equals(Person person)
-        {
-            return person.firstName == firstName &&
-                person.surname == surname &&
-                person.patronymic == patronymic &&
-                person.birthday == birthday;
-        }
-    }
-
-    class Model
+    class Model: IModel
     {
         private List<Person> data;
         private string filename;

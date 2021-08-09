@@ -5,8 +5,8 @@ namespace BirthdayGreetings
 {
     class Menu
     {
-        private Model model;
-        public Menu(Model model)
+        private IModel model;
+        public Menu(IModel model)
         {
             this.model = model;
         }
@@ -85,10 +85,11 @@ namespace BirthdayGreetings
         {
             Console.WriteLine("Добавление нового дня рождения");
             model.Add(InputPerson());
+            Console.WriteLine("Добавление завершено");
         }
         private Person InputPerson(Person? defVal = null)
         {
-            Person person;
+            Person person = new();
             person.surname = Input("Фамилия: ", defVal?.surname);
             person.firstName = Input("Имя: ", defVal?.firstName);
             person.patronymic = Input("Отчество: ", defVal?.patronymic);
