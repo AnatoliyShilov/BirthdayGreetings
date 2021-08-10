@@ -9,9 +9,6 @@ namespace BirthdayGreetings
     {
         private List<Person> people;
         private const string connectionString = "Data Source=localhost;Initial Catalog=People;Integrated Security=True;Pooling=False";
-        public MSSQLModel()
-        {
-        }
         private Person CreatePerson(IDataRecord record)
         {
             Person person = new();

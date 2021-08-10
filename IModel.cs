@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace BirthdayGreetings
 {
     struct Person
     {
+        private static readonly Regex regex = new(@"\s+");
         [JsonInclude]
         public string firstName;
         [JsonInclude]
@@ -17,8 +19,7 @@ namespace BirthdayGreetings
         public int id;
         public override string ToString()
         {
-            // TODO удалить пробелы в конце строки
-            return $"ФИО: {surname} {firstName} {patronymic}\nДень рождения: " + birthday.ToString("d");
+            return $"ФИО: {regex.Replace(surname, "")} {regex.Replace(firstName, "")} {regex.Replace(patronymic, "")}\nДень рождения: " + birthday.ToString("d");
         }
         public bool Equals(Person person)
         {

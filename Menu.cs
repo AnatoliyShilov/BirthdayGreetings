@@ -23,6 +23,7 @@ namespace BirthdayGreetings
                 Console.WriteLine("4 - Удалить день рождения");
                 Console.WriteLine("5 - Редактировать день рождения");
                 Console.WriteLine("0 - Выйти");
+                Console.Write("Введите номер команды: ");
                 index = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
                 ExecCommand(index);
